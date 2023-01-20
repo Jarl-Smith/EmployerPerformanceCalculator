@@ -5,40 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmployerPerformanceCalculator"
         mc:Ignorable="d"
-        Title="员工考核计算器" Height="450" Width="800">
+        Title="员工考核计算器" Height="500" Width="400">
+    <Window.Resources>
+        <local:MyPerformanceCollection x:Key="myPerformanceColl"/>
+        <DataTemplate x:Key="performanceDataTemplate">
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0}&lt;-&gt;{1}">
+                        <Binding Path="Key"/>
+                        <Binding Path="Value"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
             <RowDefinition Height="320"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel x:Name="stackPanel1" Orientation="Horizontal" FlowDirection="LeftToRight" Grid.Row="0">
-            <Label Content="请选择员工考核表格:"/>
-            <StackPanel Width="240">
-                <Button x:Name="btn1" Content="选择文件" Width="70"/>
-                <TextBlock x:Name="tbk1" TextWrapping="Wrap"/>
+        <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" Grid.Row="0">
+            <StackPanel Width="100">
+                <Button Content="请选择月考核得分表格:" Click="onChooseMonthPerformanceBtnClick"/>
+                <TextBlock x:Name="tbk2" TextWrapping="Wrap" />
             </StackPanel>
-            <Label Content="请选择考核得分表格:"/>
-            <StackPanel Width="240">
-                <Button x:Name="btn2" Content="选择文件" Width="70"/>
-                <TextBlock x:Name="tbk2" TextWrapping="Wrap"/>
-            </StackPanel>
+            <Label Content="请选择县区："/>
+            <ComboBox x:Name="subDistrictCmb" Height="28" SelectedIndex="2" VerticalAlignment="Top">
+                <ComboBoxItem Content="铁东"/>
+                <ComboBoxItem Content="铁西"/>
+                <ComboBoxItem Content="汤阴"/>
+                <ComboBoxItem Content="内黄"/>
+                <ComboBoxItem Content="滑县"/>
+                <ComboBoxItem Content="林州"/>
+            </ComboBox>
         </StackPanel>
-        <StackPanel x:Name="stackPanel2" Grid.Row="1">
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                <StackPanel>
-                    <Label>123456</Label>
-                    <Label>123456</Label>
-                    <Label>123456</Label>
-                    <Label>123456</Label>
-                    <Label>123456</Label>
-                    <Label>123456</Label>
-                    <Label>123456</Label>
-                </StackPanel>
+        <StackPanel Grid.Row="1">
+            <ScrollViewer Height="290" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <ListBox ItemsSource="{Binding Source={StaticResource myPerformanceColl}}"
+                         ItemTemplate="{StaticResource performanceDataTemplate}"
+                         IsSynchronizedWithCurrentItem="True">
+                </ListBox>
             </ScrollViewer>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="+" Margin="0,0,10,0" Click="onAddPerformanceItemBtnClick"/>
+                <Button Content="-" Margin="10,0,0,0"/>
+            </StackPanel>
         </StackPanel>
         <WrapPanel x:Name="wrapPanel" HorizontalAlignment="Center" Grid.Row="2">
-            <Button Content="计算考核" Click="performance_Button_Click" Width="80" Height="20"/>
+            <Button Content="计算考核" Click="onCalculateBtnClick" Width="80" Height="20"/>
         </WrapPanel>
     </Grid>
 </Window>

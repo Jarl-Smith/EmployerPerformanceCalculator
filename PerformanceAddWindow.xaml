@@ -1,0 +1,26 @@
+﻿<Window x:Class="EmployerPerformanceCalculator.PerformanceAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmployerPerformanceCalculator"
+        mc:Ignorable="d"
+        Title="PerformanceAddWindow" Height="150" Width="300">
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Label Content="请输入考核名称" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <TextBox x:Name="sourcePerformance" Grid.Column="1" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+            <Label Content="请输入考核名称" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox x:Name="targetPerformance" Grid.Column="1" Grid.Row="1" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+        </Grid>
+        <Button Content="完成" Width="60" Click="Button_Click"/>
+    </StackPanel>
+</Window>
