@@ -58,7 +58,7 @@ namespace EmployerPerformanceCalculator
             //将考核集合转换为字典并赋值
             calculateControl.EmployerPerformanceToMonthPerformanceDict = new Dictionary<string, string>(myColl);
             //计算考核并导出到文件中
-            calculateControl.SetExcels(monthPerformanceFile);
+            calculateControl.LoadExcel(monthPerformanceFile);
             calculateControl.OutputToEmpExcel();
         }
 
@@ -67,6 +67,13 @@ namespace EmployerPerformanceCalculator
             MyPerformanceCollection temp = (MyPerformanceCollection)this.Resources["myPerformanceColl"];
             PerformanceAddWindow performanceAddWindow = new PerformanceAddWindow(temp);
             performanceAddWindow.Show();
+        }
+
+        private void onSubtractPerformanceBtnClick(object sender, RoutedEventArgs e)
+        {
+            KeyValuePair<string, string> temp = (KeyValuePair<string, string>)performanceCollLsB.SelectedItem;
+            MyPerformanceCollection myColl = (MyPerformanceCollection)this.Resources["myPerformanceColl"];
+            myColl.Remove(temp);
         }
     }
 }

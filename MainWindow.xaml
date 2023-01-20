@@ -42,14 +42,14 @@
         </StackPanel>
         <StackPanel Grid.Row="1">
             <ScrollViewer Height="290" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                <ListBox ItemsSource="{Binding Source={StaticResource myPerformanceColl}}"
+                <ListBox x:Name="performanceCollLsB" ItemsSource="{Binding Source={StaticResource myPerformanceColl}}"
                          ItemTemplate="{StaticResource performanceDataTemplate}"
                          IsSynchronizedWithCurrentItem="True">
                 </ListBox>
             </ScrollViewer>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Content="+" Margin="0,0,10,0" Click="onAddPerformanceItemBtnClick"/>
-                <Button Content="-" Margin="10,0,0,0"/>
+                <Button Content="-" Margin="10,0,0,0" Click="onSubtractPerformanceBtnClick"/>
             </StackPanel>
         </StackPanel>
         <WrapPanel x:Name="wrapPanel" HorizontalAlignment="Center" Grid.Row="2">

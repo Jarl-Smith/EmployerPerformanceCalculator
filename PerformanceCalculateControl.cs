@@ -44,7 +44,7 @@ namespace EmployerPerformanceCalculator
         //}
 
 
-        public void SetExcels(string monthPerformanceExcelPath)
+        public void LoadExcel(string monthPerformanceExcelPath)
         {
             if (!File.Exists(monthPerformanceExcelPath))
             {
