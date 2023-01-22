@@ -28,22 +28,6 @@ namespace EmployerPerformanceCalculator
         private String targetSubDistrictName = "汤阴";
 
 
-        //static void Main(string[] args)
-        //{
-        //    string filePath = @"E:\OfficeWorkBench\1-11月份最终考核结果\附件1：2022年1月份网络运行情况详表.xlsx";
-
-        //    PerformanceCalculateControl calcControl = new PerformanceCalculateControl();
-        //    calcControl.monthPerformanceExcelHelper = new PerformanceExcelHelper();
-        //    calcControl.monthPerformanceExcelHelper.OpenExcel(filePath);
-        //    calcControl.EmployerPerformanceToMonthPerformanceDict.Add("终端利旧", "家客终端利旧");
-        //    calcControl.EmployerPerformanceToMonthPerformanceDict.Add("家客终端处置", "家客终端翻新");
-        //    calcControl.EmployerPerformanceToMonthPerformanceDict.Add("IVR投诉回访解决率&满意率", "IVR回访解决率");
-        //    calcControl.EmployerPerformanceToMonthPerformanceDict.Add("转改直目标完成率", "转改直目标完成率");
-        //    calcControl.OutputToEmpExcel();
-        //    calcControl.Close();
-        //}
-
-
         public void LoadExcel(string monthPerformanceExcelPath)
         {
             if (!File.Exists(monthPerformanceExcelPath))
@@ -133,7 +117,7 @@ namespace EmployerPerformanceCalculator
         /// <param name="subdistrictAndValueDict">键值对形式的县区及得分</param>
         /// <param name="subdistrictName">将要查找排名的县区名称</param>
         /// <returns>县区的排名，返回-1证明找不到</returns>
-        internal int calculateRank(Dictionary<string, double> subdistrictAndValueDict, string subdistrictName)
+        private int calculateRank(Dictionary<string, double> subdistrictAndValueDict, string subdistrictName)
         {
             if (!subdistrictAndValueDict.ContainsKey(subdistrictName)) { return -1; }//所给县区名称不在键值对里，证明找不到
             int arraySize = subdistrictAndValueDict.Values.Count;

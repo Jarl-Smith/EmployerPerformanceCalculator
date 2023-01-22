@@ -25,11 +25,7 @@
             <RowDefinition Height="320"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" Grid.Row="0">
-            <StackPanel Width="100">
-                <Button Content="请选择月考核得分表格:" Click="onChooseMonthPerformanceBtnClick"/>
-                <TextBlock x:Name="tbk2" TextWrapping="Wrap" />
-            </StackPanel>
+        <DockPanel Grid.Row="0" Margin="5">
             <Label Content="请选择县区："/>
             <ComboBox x:Name="subDistrictCmb" Height="28" SelectedIndex="2" VerticalAlignment="Top">
                 <ComboBoxItem Content="铁东"/>
@@ -39,8 +35,10 @@
                 <ComboBoxItem Content="滑县"/>
                 <ComboBoxItem Content="林州"/>
             </ComboBox>
-        </StackPanel>
-        <StackPanel Grid.Row="1">
+            <Button Height="30" Content="请选择月考核得分表格:" DockPanel.Dock="Top" Click="onChooseMonthPerformanceBtnClick"/>
+            <TextBox x:Name="tbk2" TextWrapping="Wrap" IsReadOnly="True" DockPanel.Dock="Bottom"/>
+        </DockPanel>
+        <StackPanel Grid.Row="1" Margin="5,0">
             <ScrollViewer Height="290" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                 <ListBox x:Name="performanceCollLsB" ItemsSource="{Binding Source={StaticResource myPerformanceColl}}"
                          ItemTemplate="{StaticResource performanceDataTemplate}"
@@ -52,8 +50,8 @@
                 <Button Content="-" Margin="10,0,0,0" Click="onSubtractPerformanceBtnClick"/>
             </StackPanel>
         </StackPanel>
-        <WrapPanel x:Name="wrapPanel" HorizontalAlignment="Center" Grid.Row="2">
-            <Button Content="计算考核" Click="onCalculateBtnClick" Width="80" Height="20"/>
-        </WrapPanel>
+        <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
+            <Button Content="计算考核" VerticalAlignment="Center" Click="onCalculateBtnClick" Width="80" Height="20"/>
+        </DockPanel>
     </Grid>
 </Window>

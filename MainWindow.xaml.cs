@@ -22,7 +22,7 @@ namespace EmployerPerformanceCalculator
     {
         private PerformanceCalculateControl calculateControl = new PerformanceCalculateControl();
 
-        private string monthPerformanceFile;
+        private string monthPerformanceFile = null;
 
         public MainWindow()
         {
