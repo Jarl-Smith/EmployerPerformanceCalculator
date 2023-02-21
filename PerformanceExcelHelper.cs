@@ -15,19 +15,6 @@ namespace EmployerPerformanceCalculator
         private Excel.Worksheet oSheet = null;//声明工作表对象
         private Excel.Range oRng = null;//声明选中单元格的对象
 
-        //static void Main(string[] args)
-        //{
-        //    //string excelPath = @"E:\WorkSpace\附件4：网络部全年经营业绩冲刺目标.xlsx";
-        //    string excelPath = @"E:\ProgramWorkSpace\附件4：网络部全年经营业绩冲刺目标.xlsx";
-        //    ExcelFileHelper p = new ExcelFileHelper();
-        //    p.OpenExcel(excelPath);
-        //    var RowAndColumn = p.FindCellByKeyword("1月");
-        //    string str1 = p.FindByRowAndColumnNumber(1, 5);
-        //    //string str2 = p.EditByRowAndColumnNumber(RowAndColumn.Row, RowAndColumn.Column, "1月");
-        //    p.CloseExel();
-        //    p.Dispose();
-        //}
-
         public void CreateExcel(string filePath)
         {
             oXL = new Excel.Application();
@@ -102,13 +89,14 @@ namespace EmployerPerformanceCalculator
 
             oRng = oSheet.Cells.EntireRow;//将查找范围定义为整个表格
             Excel.Range currentFind = oRng.Find(keyword,
-                Missing.Value, Excel.XlFindLookIn.xlValues,
-                Excel.XlLookAt.xlPart,
-                Excel.XlSearchOrder.xlByRows,
-                Excel.XlSearchDirection.xlNext,
-                false,
-                Missing.Value,
-                Missing.Value);
+                                                Missing.Value,
+                                                Excel.XlFindLookIn.xlValues,
+                                                Excel.XlLookAt.xlPart,
+                                                Excel.XlSearchOrder.xlByRows,
+                                                Excel.XlSearchDirection.xlNext,
+                                                false,
+                                                Missing.Value,
+                                                Missing.Value);
             if (currentFind != null)
             {
                 return new { Row = currentFind.Row, Column = currentFind.Column };
@@ -130,13 +118,14 @@ namespace EmployerPerformanceCalculator
         {
             oRng = oSheet.Cells.EntireRow;//将查找范围定义为整个表格
             Excel.Range currentFind = oRng.Find(keyword,
-                oSheet.Cells[searchStartRow, searchStartColumn], Excel.XlFindLookIn.xlValues,
-                Excel.XlLookAt.xlPart,
-                Excel.XlSearchOrder.xlByColumns,
-                Excel.XlSearchDirection.xlNext,
-                false,
-                Missing.Value,
-                Missing.Value);
+                                                oSheet.Cells[searchStartRow, searchStartColumn],
+                                                Excel.XlFindLookIn.xlValues,
+                                                Excel.XlLookAt.xlPart,
+                                                Excel.XlSearchOrder.xlByColumns,
+                                                Excel.XlSearchDirection.xlNext,
+                                                false,
+                                                Missing.Value,
+                                                Missing.Value);
             if (currentFind != null)
             {
                 return new { Row = currentFind.Row, Column = currentFind.Column };

@@ -23,7 +23,6 @@ namespace EmployerPerformanceCalculator
         public Dictionary<string, string> EmployerPerformanceToMonthPerformanceDict = new Dictionary<string, string>();
         public string OutputExcelPath = @"E:\OfficeWorkBench\123.xlsx";
 
-
         private PerformanceExcelHelper monthPerformanceExcelHelper = null;
         private String targetSubDistrictName = "汤阴";
 
