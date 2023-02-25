@@ -54,7 +54,7 @@
         <Border Grid.Row="1" BorderBrush="Black" BorderThickness="1" Padding="2" Margin="2">
             <StackPanel>
                 <ScrollViewer Height="320" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                    <ListBox x:Name="performanceCollLsB" ItemsSource="{Binding Source={StaticResource myPerformanceColl}}"
+                    <ListBox x:Name="performanceCollLsB" ItemsSource="{Binding Source={DynamicResource myPerformanceColl}}"
                          ItemTemplate="{StaticResource performanceDataTemplate}"
                          IsSynchronizedWithCurrentItem="True">
                     </ListBox>
