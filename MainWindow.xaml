@@ -39,13 +39,13 @@
             <Border BorderBrush="Black" BorderThickness="1" Padding="2" Margin="2">
                 <StackPanel Orientation="Horizontal" Width="140">
                     <Label Content="请选择县区："/>
-                    <ComboBox x:Name="subDistrictCmb" Height="25" SelectedIndex="2" VerticalAlignment="Top">
-                        <ComboBoxItem Content="铁东"/>
-                        <ComboBoxItem Content="铁西"/>
-                        <ComboBoxItem Content="汤阴"/>
-                        <ComboBoxItem Content="内黄"/>
-                        <ComboBoxItem Content="滑县"/>
-                        <ComboBoxItem Content="林州"/>
+                    <ComboBox x:Name="subDistrictCmb" Height="25" SelectedIndex="0" VerticalAlignment="Top">
+                        <ComboBoxItem Content="齐"/>
+                        <ComboBoxItem Content="楚"/>
+                        <ComboBoxItem Content="燕"/>
+                        <ComboBoxItem Content="韩"/>
+                        <ComboBoxItem Content="赵"/>
+                        <ComboBoxItem Content="魏"/>
                     </ComboBox>
                 </StackPanel>
             </Border>
